@@ -660,6 +660,7 @@ sources/55 = SubResource("TileSetAtlasSource_f6uxy")
 script = ExtResource("1_ryrts")
 
 [node name="Player" parent="." instance=ExtResource("1_ros5h")]
+visible = false
 position = Vector2(524, 351)
 
 [node name="TileMap" type="TileMap" parent="."]
