@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcccogap3buey"]
+
+[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://Player.tscn" id="1_5axx1"]
+[ext_resource type="PackedScene" uid="uid://dhj64vmwc7g2j" path="res://mob.tscn" id="2_r4ub1"]
+
+[node name="Game" type="Node2D"]
+position = Vector2(364, 244)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -30
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -174.0
+offset_top = -105.0
+offset_right = 1912.0
+offset_bottom = 1069.0
+
+[node name="Player" parent="." instance=ExtResource("1_5axx1")]
+position = Vector2(420, 178)
+
+[node name="Mob2" parent="." instance=ExtResource("2_r4ub1")]
+position = Vector2(228, -108)
+
+[node name="Mob" parent="." instance=ExtResource("2_r4ub1")]
+position = Vector2(127, 294)
+
+[node name="Mob3" parent="." instance=ExtResource("2_r4ub1")]
+position = Vector2(566, -4)
+
+[node name="Mob4" parent="." instance=ExtResource("2_r4ub1")]
+position = Vector2(729, 60)
+
+[node name="Mob5" parent="." instance=ExtResource("2_r4ub1")]
+position = Vector2(-62, 155)
