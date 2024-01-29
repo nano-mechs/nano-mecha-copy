@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcccogap3buey"]
 
-[ext_resource type="Script" path="res://scenes/Nano.gd" id="1_tiixt"]
+[ext_resource type="Script" path="res://scripts/Nano.gd" id="1_tiixt"]
 [ext_resource type="Texture2D" uid="uid://bapbsf3sgwn40" path="res://sprites/backgrounds/pixel-art-night-city-seamless-background-detailed-vector-23730672.png" id="2_b5kpc"]
-[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://sprites/player/Player.tscn" id="3_c3ndp"]
+[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://scenes/Player.tscn" id="3_c3ndp"]
 
 [sub_resource type="Curve2D" id="Curve2D_w4qty"]
 _data = {
