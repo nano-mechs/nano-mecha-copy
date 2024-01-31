@@ -88,5 +88,5 @@ text = "START OVER!!!"
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]
+[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
