@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcccogap3buey"]
+[gd_scene load_steps=10 format=3 uid="uid://dcccogap3buey"]
 
 [ext_resource type="Script" path="res://scripts/Nano.gd" id="1_tiixt"]
 [ext_resource type="Texture2D" uid="uid://bapbsf3sgwn40" path="res://sprites/backgrounds/pixel-art-night-city-seamless-background-detailed-vector-23730672.png" id="2_b5kpc"]
 [ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://scenes/Player.tscn" id="3_c3ndp"]
+[ext_resource type="PackedScene" uid="uid://15x4htesopre" path="res://scenes/tree.tscn" id="4_scil3"]
 
 [sub_resource type="Curve2D" id="Curve2D_w4qty"]
 _data = {
@@ -10,11 +11,25 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_723mx"]
+size = Vector2(2109.5, 39.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5uuhs"]
+size = Vector2(34.625, 1209.13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpsx0"]
+size = Vector2(46.5, 1197)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgwsp"]
+size = Vector2(2109.5, 39.5)
+
 [node name="Game" type="Node2D"]
+y_sort_enabled = true
 position = Vector2(364, 244)
 script = ExtResource("1_tiixt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(693, 984)
 scale = Vector2(2.105, 1.66829)
 texture = ExtResource("2_b5kpc")
@@ -31,6 +46,7 @@ scale = Vector2(-1.33178, 1.54504)
 
 [node name="Player" parent="." instance=ExtResource("3_c3ndp")]
 position = Vector2(655, 1012)
+collision_layer = 1
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-420, -178)
@@ -86,7 +102,42 @@ offset_bottom = 736.0
 theme_override_font_sizes/font_size = 50
 text = "START OVER!!!"
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StaticBody2D - Border" type="StaticBody2D" parent="."]
+position = Vector2(128, 161)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D - Border"]
+position = Vector2(563.25, 234.25)
+shape = SubResource("RectangleShape2D_723mx")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D - Border"]
+position = Vector2(-484.313, 821.438)
+shape = SubResource("RectangleShape2D_5uuhs")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D - Border"]
+position = Vector2(1595, 813)
+shape = SubResource("RectangleShape2D_vpsx0")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D - Border"]
+position = Vector2(565, 1403)
+shape = SubResource("RectangleShape2D_fgwsp")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("4_scil3")]
+position = Vector2(-5, 791)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("4_scil3")]
+position = Vector2(1389, 614)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("4_scil3")]
+position = Vector2(200, 1280)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("4_scil3")]
+position = Vector2(1248, 1133)
+
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
+[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]
