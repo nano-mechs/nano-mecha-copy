@@ -34,16 +34,6 @@ position = Vector2(693, 984)
 scale = Vector2(2.105, 1.66829)
 texture = ExtResource("2_b5kpc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -30
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 2108.0
-offset_top = 659.0
-offset_right = 3696.0
-offset_bottom = 1406.0
-scale = Vector2(-1.33178, 1.54504)
-
 [node name="Player" parent="." instance=ExtResource("3_c3ndp")]
 position = Vector2(655, 1012)
 collision_layer = 1
@@ -139,5 +129,5 @@ position = Vector2(1248, 1133)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]
+[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
