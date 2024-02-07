@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcccogap3buey"]
+[gd_scene load_steps=9 format=3 uid="uid://l8gcq31tc5w4"]
 
-[ext_resource type="Script" path="res://scripts/Nano.gd" id="1_tiixt"]
-[ext_resource type="Texture2D" uid="uid://bapbsf3sgwn40" path="res://sprites/backgrounds/pixel-art-night-city-seamless-background-detailed-vector-23730672.png" id="2_b5kpc"]
-[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://scenes/Player.tscn" id="3_c3ndp"]
-[ext_resource type="PackedScene" uid="uid://15x4htesopre" path="res://scenes/tree.tscn" id="4_scil3"]
+[ext_resource type="Script" path="res://scripts/SpaceScene.gd" id="1_hkmim"]
+[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://scenes/Player.tscn" id="3_e5r1o"]
+[ext_resource type="Texture2D" uid="uid://dd6ja0tv6vuq5" path="res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png" id="4_c4g6x"]
 
 [sub_resource type="Curve2D" id="Curve2D_w4qty"]
 _data = {
@@ -26,15 +25,15 @@ size = Vector2(2109.5, 39.5)
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(364, 244)
-script = ExtResource("1_tiixt")
+script = ExtResource("1_hkmim")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(693, 984)
-scale = Vector2(2.105, 1.66829)
-texture = ExtResource("2_b5kpc")
+position = Vector2(737, 1084)
+scale = Vector2(2.7125, 3.40741)
+texture = ExtResource("4_c4g6x")
 
-[node name="Player" parent="." instance=ExtResource("3_c3ndp")]
+[node name="Player" parent="." instance=ExtResource("3_e5r1o")]
 position = Vector2(655, 1012)
 collision_layer = 1
 
@@ -114,18 +113,6 @@ shape = SubResource("RectangleShape2D_vpsx0")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D - Border"]
 position = Vector2(565, 1403)
 shape = SubResource("RectangleShape2D_fgwsp")
-
-[node name="StaticBody2D" parent="." instance=ExtResource("4_scil3")]
-position = Vector2(-5, 791)
-
-[node name="StaticBody2D2" parent="." instance=ExtResource("4_scil3")]
-position = Vector2(1389, 614)
-
-[node name="StaticBody2D3" parent="." instance=ExtResource("4_scil3")]
-position = Vector2(200, 1280)
-
-[node name="StaticBody2D4" parent="." instance=ExtResource("4_scil3")]
-position = Vector2(1248, 1133)
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

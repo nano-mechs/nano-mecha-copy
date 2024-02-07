@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqmmg2puqjfvm"]
+
+[ext_resource type="Script" path="res://scripts/mob2.gd" id="1_leell"]
+[ext_resource type="Texture2D" uid="uid://bkcxikp5xen5t" path="res://sprites/mobs/redsquare.png" id="2_7kj3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
+size = Vector2(163, 172)
+
+[node name="Mob" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_leell")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.791262, 0.741379)
+texture = ExtResource("2_7kj3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_upyca")
