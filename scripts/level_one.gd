@@ -1,19 +1,30 @@
 extends Node2D
 
+static var enemies = {
+	"max_spawn_count": 100,
+	"spawned": 0,
+	"killed": 0
+}
+
 func _ready():
 	for i in 5:
 		spawn_mob()
 
 
 func spawn_mob():
+	if enemies.spawned >= enemies.max_spawn_count: return
+	
 	var new_mob = preload("res://scenes/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
 	add_child(new_mob)
+	enemies.spawned += 1
 
 
 func _on_timer_timeout():
-	spawn_mob()
+	# limits number of enemies that can appear in one go
+	if abs(enemies.spawned - enemies.killed) <= 10:
+		spawn_mob()
 
 
 func _on_player_health_depleted():
