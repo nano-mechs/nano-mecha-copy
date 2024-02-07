@@ -47,6 +47,9 @@ unique_name_in_owner = true
 position = Vector2(-809, -671)
 rotation = 0.00229885
 
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(7, -25)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 autostart = true
