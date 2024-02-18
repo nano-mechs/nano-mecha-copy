@@ -4,6 +4,7 @@ signal killed
 
 # stats
 var health = 100.0
+# TODO: move this to each mob to make their damage unique
 const DAMAGE_RATE = 50.0
 
 # runs 60 times per second

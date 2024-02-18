@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+# everything emits a killed signal for when they... get killed
+signal killed
 # value assigned(usually the player) on spawn from the parent scene
 var target
 
@@ -9,6 +11,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage():
+	killed.emit()
 	queue_free()
 	const SMOKE_EXPLOSION = preload("res://scenes/smoke_explosion.tscn")
 	var smoke = SMOKE_EXPLOSION.instantiate()

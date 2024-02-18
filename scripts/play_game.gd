@@ -1,18 +1,23 @@
 extends Node2D
 
-var enemies = {
-	"max_spawn_count": 100,
-	"spawned": 0,
-	"killed": 0,
-	"types": [ preload("res://scenes/mob.tscn") ]
-}
+# assigned in State
+var enemies
 
 func _ready():
 	start_level()
 
+# TODO: assign proper values to `enemies` every level
+func start_level():
+	enemies = State.assign_level_props()
+	%Timer.start()
+
 func _on_timer_timeout():
 	spawn_enemy()
 
+func _on_player_killed():
+	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+
+# signal from spawn_enemy()
 func _on_enemy_killed():
 	enemies.killed += 1
 	if enemies.killed == enemies.max_spawn_count:
@@ -20,16 +25,17 @@ func _on_enemy_killed():
 
 # TODO: switch to "inbetween levels" scene
 func win_level():
-	pass
-
-func start_level():
-	%Timer.start()
+	State.level += 1
+	# get_tree().change_scene_to_file(<this scene hasn't been made yet>)
+	print("win level")
 
 func spawn_enemy():
+	if enemies.spawned == enemies.max_spawn_count: return
+
 	enemies.spawned += 1
 	var new_enemy = enemies.types.pick_random().instantiate()
 	%EnemySpawnLine.progress_ratio = randf()
 	new_enemy.global_position = %EnemySpawnLine.global_position
 	new_enemy.target = %Player
+	new_enemy.connect("killed", _on_enemy_killed) # attach signal to method
 	add_child(new_enemy)
-	new_enemy.connect("killed", _on_enemy_killed)

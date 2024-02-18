@@ -42,6 +42,7 @@ position = Vector2(1920, 1080)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 0.299
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_4xyvb")
@@ -68,4 +69,5 @@ shape = SubResource("RectangleShape2D_tccp8")
 position = Vector2(1920, 2160)
 shape = SubResource("RectangleShape2D_tccp8")
 
+[connection signal="killed" from="Player" to="." method="_on_player_killed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
