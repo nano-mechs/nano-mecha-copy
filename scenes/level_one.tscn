@@ -130,7 +130,7 @@ position = Vector2(200, 1280)
 [node name="StaticBody2D4" parent="." instance=ExtResource("4_edwdv")]
 position = Vector2(1248, 1133)
 
-[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="killed" from="Player" to="." method="_on_player_killed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]

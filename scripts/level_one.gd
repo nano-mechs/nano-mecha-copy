@@ -13,7 +13,7 @@ func _ready():
 
 func spawn_mob():
 	if enemies.spawned >= enemies.max_spawn_count: return
-	
+
 	var new_mob = preload("res://scenes/mob.tscn").instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_mob.global_position = %PathFollow2D.global_position
@@ -27,7 +27,7 @@ func _on_timer_timeout():
 		spawn_mob()
 
 
-func _on_player_health_depleted():
+func _on_player_killed():
 	%GameOver.visible = true
 	get_tree().paused = true
 
