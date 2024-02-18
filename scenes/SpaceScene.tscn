@@ -11,21 +11,22 @@ _data = {
 point_count = 6
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_723mx"]
-size = Vector2(2109.5, 39.5)
+size = Vector2(2521, 81)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uuhs"]
-size = Vector2(34.625, 1209.13)
+size = Vector2(50.3125, 1855)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vpsx0"]
-size = Vector2(46.5, 1197)
+size = Vector2(67, 1860)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgwsp"]
-size = Vector2(2109.5, 39.5)
+size = Vector2(2525.88, 39.5)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
-position = Vector2(364, 244)
+position = Vector2(320, -270)
 script = ExtResource("1_hkmim")
+metadata/_edit_horizontal_guides_ = [-289.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -92,26 +93,28 @@ theme_override_font_sizes/font_size = 50
 text = "START OVER!!!"
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -13.0
+offset_top = 6.0
+offset_right = 27.0
+offset_bottom = 46.0
 
 [node name="StaticBody2D - Border" type="StaticBody2D" parent="."]
 position = Vector2(128, 161)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D - Border"]
-position = Vector2(563.25, 234.25)
+position = Vector2(637, 54)
 shape = SubResource("RectangleShape2D_723mx")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D - Border"]
-position = Vector2(-484.313, 821.438)
+position = Vector2(-657.156, 941.5)
 shape = SubResource("RectangleShape2D_5uuhs")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D - Border"]
-position = Vector2(1595, 813)
+position = Vector2(1874.5, 944)
 shape = SubResource("RectangleShape2D_vpsx0")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D - Border"]
-position = Vector2(565, 1403)
+position = Vector2(573.938, 1850)
 shape = SubResource("RectangleShape2D_fgwsp")
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

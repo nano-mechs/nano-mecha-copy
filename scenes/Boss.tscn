@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkeu7ym4aivrh"]
+
+[ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/Art/Enviroment/bot.png" id="2_oq53n"]
+
+[sub_resource type="GDScript" id="GDScript_k2ydk"]
+script/source = "extends CharacterBody2D
+
+var health = 100
+
+@onready var player = get_node(\"/root/Game/Player\")
+
+func take_damage():
+	health -= 1
+	%BossHealth.value = health
+	if health == 0:
+		queue_free()
+		const SMOKE_EXPLOSION = preload(\"res://scenes/smoke_explosion.tscn\")
+		var smoke = SMOKE_EXPLOSION.instantiate()
+		get_parent().add_child(smoke)
+		smoke.global_position = global_position
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
+size = Vector2(342.5, 337)
+
+[node name="Boss" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = SubResource("GDScript_k2ydk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(90, 95)
+scale = Vector2(0.273332, 0.256281)
+texture = ExtResource("2_oq53n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(89.75, 82.5)
+shape = SubResource("RectangleShape2D_upyca")
+
+[node name="BossHealth" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(0, 0.56932, 0.460203, 0.945098)
+offset_left = -71.0
+offset_top = 273.0
+offset_right = 247.0
+offset_bottom = 302.0
+value = 100.0
+rounded = true
+allow_greater = true
