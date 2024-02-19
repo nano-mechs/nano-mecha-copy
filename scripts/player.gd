@@ -24,3 +24,9 @@ func _physics_process(delta):
 	%Gun.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
 		%Gun.shoot()
+
+func take_damage():
+	health -= 5
+	%ProgressBar.value = health
+	if health <= 0.0:
+		killed.emit()

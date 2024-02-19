@@ -26,27 +26,23 @@ corner_radius_bottom_left = 8
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(2, -6)
-collision_layer = 0
+collision_layer = 2
 script = ExtResource("1_o32ye")
 
 [node name="HappyBoo" parent="." instance=ExtResource("1_t7f6x")]
 position = Vector2(2, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2)
 shape = SubResource("CircleShape2D_6whsu")
 
 [node name="Gun" parent="." instance=ExtResource("3_f0463")]
 unique_name_in_owner = true
 light_mask = 3
 visibility_layer = 3
-position = Vector2(1, 0)
 collision_layer = 3
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 2
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 light_mask = 3
