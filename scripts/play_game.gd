@@ -8,7 +8,7 @@ func _ready():
 
 # TODO: assign proper values to `enemies` every level
 func start_level():
-	enemies = State.assign_level_props()
+	enemies = State.assign_enemy_props()
 	%Timer.start()
 
 func _on_timer_timeout():

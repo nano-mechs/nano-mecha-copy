@@ -4,13 +4,18 @@ extends Node
 var level = 1
 var lives = 3
 
-func assign_level_props():
+func assign_enemy_props():
 	var enemies = { "spawned": 0, "killed": 0 }
 
 	match level:
 		1:
 			enemies.max_spawn_count = 100
 			enemies.types = [ preload("res://scenes/mob.tscn") ]
-		# 2: next level data
+		2:
+			enemies.max_spawn_count = 100
+			enemies.types = [
+				preload("res://scenes/mob.tscn"),
+				preload("res://scenes/ranged.tscn")
+			]
 
 	return enemies

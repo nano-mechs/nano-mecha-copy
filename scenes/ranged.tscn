@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_mprgl")
 unique_name_in_owner = true
 position = Vector2(0, 0)
 
-[node name="GunReload" type="Timer" parent="."]
+[node name="Reload" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="GunReload" to="." method="_on_gun_reload_timeout"]
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

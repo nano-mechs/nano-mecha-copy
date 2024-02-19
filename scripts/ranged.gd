@@ -30,5 +30,5 @@ func take_damage():
 		smoke.global_position = global_position
 
 
-func _on_gun_reload_timeout():
+func _on_reload_timeout():
 	can_shoot = true
