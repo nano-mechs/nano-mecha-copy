@@ -17,13 +17,13 @@ func _on_timer_timeout():
 func _on_player_killed():
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 
-# signal from spawn_enemy()
+# signal attached to every enemy by spawn_enemy() method
 func _on_enemy_killed():
 	enemies.killed += 1
 	if enemies.killed == enemies.max_spawn_count:
 		win_level()
 
-# TODO: switch to "inbetween levels" scene
+# TODO: switch to "inbetween levels" scene to give player a break/savepoint
 func win_level():
 	State.level += 1
 	# get_tree().change_scene_to_file(<this scene hasn't been made yet>)

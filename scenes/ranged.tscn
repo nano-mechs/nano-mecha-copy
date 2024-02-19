@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6noxbir5o165"]
+[gd_scene load_steps=5 format=3 uid="uid://cpj7nmocv6byh"]
 
 [ext_resource type="Script" path="res://scripts/ranged.gd" id="1_xoxsg"]
 [ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="2_dwftn"]
-[ext_resource type="PackedScene" uid="uid://cqfjojykywphk" path="res://scenes/enemy_gun.tscn" id="3_dpxrj"]
+[ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://scenes/gun.tscn" id="4_kkp67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprgl"]
 size = Vector2(163, 172)
@@ -12,11 +12,18 @@ collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_xoxsg")
 
-[node name="Enemy_gun" parent="." instance=ExtResource("3_dpxrj")]
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.791262, 0.741379)
 texture = ExtResource("2_dwftn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mprgl")
+
+[node name="Gun" parent="." instance=ExtResource("4_kkp67")]
+unique_name_in_owner = true
+position = Vector2(0, 0)
+
+[node name="GunReload" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="GunReload" to="." method="_on_gun_reload_timeout"]
