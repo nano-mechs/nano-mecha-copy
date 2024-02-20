@@ -1,6 +1,7 @@
 # GLOBAL STUFF THAT NEEDS TO MAINTAIN STATE PASSED BETWEEN SCENES GO HERE
 extends Node
 
+var prev_scene = null
 var level = 1
 var lives = 3
 

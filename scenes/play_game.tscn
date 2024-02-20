@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://50wbrbjubsuc"]
 
-[ext_resource type="Script" path="res://scripts/play_game.gd" id="1_li2a5"]
+[ext_resource type="Script" path="res://scripts/play_game.gd" id="1_x3d58"]
 [ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="2_gvt6s"]
-[ext_resource type="Texture2D" path="res://sprites/tiles.png" id="3_7rrfa"]
+[ext_resource type="Texture2D" uid="uid://dx3qh2c27nqf" path="res://sprites/tiles.png" id="3_7rrfa"]
 [ext_resource type="Texture2D" uid="uid://dd6ja0tv6vuq5" path="res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png" id="3_rkdct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rk4a"]
@@ -28,8 +28,8 @@ size = Vector2(50, 2160)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tccp8"]
 size = Vector2(3840, 50)
 
-[node name="PlayGame" type="Node2D"]
-script = ExtResource("1_li2a5")
+[node name="Game" type="Node2D"]
+script = ExtResource("1_x3d58")
 
 [node name="Background" type="Sprite2D" parent="."]
 unique_name_in_owner = true
