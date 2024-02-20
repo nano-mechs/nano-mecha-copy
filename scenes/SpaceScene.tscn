@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://l8gcq31tc5w4"]
 
 [ext_resource type="Script" path="res://scripts/SpaceScene.gd" id="1_hkmim"]
-[ext_resource type="PackedScene" uid="uid://cbwv5c4r8ut5y" path="res://scenes/player.tscn" id="3_e5r1o"]
+[ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="3_e5r1o"]
 [ext_resource type="Texture2D" uid="uid://dd6ja0tv6vuq5" path="res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png" id="4_c4g6x"]
 
 [sub_resource type="Curve2D" id="Curve2D_w4qty"]
@@ -119,5 +119,5 @@ shape = SubResource("RectangleShape2D_fgwsp")
 
 [connection signal="killed" from="Player" to="." method="_on_player_killed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]
 [connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_o_ver_pressed"]
+[connection signal="pressed" from="GameOver/StartOver" to="." method="_on_start_over_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpj7nmocv6byh"]
+[gd_scene load_steps=5 format=3 uid="uid://dxonv2qcpfdvh"]
 
 [ext_resource type="Script" path="res://scripts/ranged.gd" id="1_xoxsg"]
 [ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="2_dwftn"]
@@ -8,7 +8,8 @@
 size = Vector2(163, 172)
 
 [node name="Ranged" type="CharacterBody2D"]
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_xoxsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,7 +21,6 @@ shape = SubResource("RectangleShape2D_mprgl")
 
 [node name="Gun" parent="." instance=ExtResource("4_kkp67")]
 unique_name_in_owner = true
-position = Vector2(0, 0)
 
 [node name="Reload" type="Timer" parent="."]
 autostart = true

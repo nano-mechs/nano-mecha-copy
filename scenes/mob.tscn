@@ -7,7 +7,8 @@
 size = Vector2(163, 172)
 
 [node name="Mob" type="CharacterBody2D"]
-collision_mask = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_hxvpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
