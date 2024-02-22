@@ -8,7 +8,6 @@ var health = 100.0
 const DAMAGE_RATE = 50.0
 
 # runs 60 times per second
-# movement etc etc
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * 600
@@ -26,8 +25,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Shoot"):
 		%Gun.shoot()
 
-func take_damage():
-	health -= 5
+func take_damage(damage = 1):
+	health -= damage
 	%ProgressBar.value = health
 	if health <= 0.0:
 		killed.emit()
