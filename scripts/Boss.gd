@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 var health = 100
-
+signal killed
 @onready var player = get_node("/root/Game/Player")
 
 func take_damage():
 	health -= 1
 	%BossHealth.value = health
 	if health == 0:
+		killed.emit()
 		queue_free()
 		const SMOKE_EXPLOSION = preload("res://scenes/smoke_explosion.tscn")
 		var smoke = SMOKE_EXPLOSION.instantiate()

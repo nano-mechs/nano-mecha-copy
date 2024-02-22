@@ -36,7 +36,6 @@ texture = ExtResource("4_c4g6x")
 
 [node name="Player" parent="." instance=ExtResource("3_e5r1o")]
 position = Vector2(655, 1012)
-collision_layer = 1
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-420, -178)

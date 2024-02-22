@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://blppi5qivjwc5"]
 
-[ext_resource type="Script" path="res://scripts/Spaceboss.gd" id="1_8mob5"]
+[ext_resource type="Script" path="res://scripts/boss_level.gd" id="1_8mob5"]
 [ext_resource type="Texture2D" uid="uid://clklnycpr5ufy" path="res://sprites/backgrounds/spaceboss.png" id="2_5wimh"]
 [ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="3_33074"]
 [ext_resource type="Script" path="res://scripts/PathFollow2D.gd" id="4_lmkvr"]
@@ -71,3 +71,4 @@ script = ExtResource("4_lmkvr")
 [node name="Boss" parent="Path2D/PathFollow2D" instance=ExtResource("5_7igt0")]
 
 [connection signal="killed" from="Player" to="." method="_on_player_killed"]
+[connection signal="killed" from="Path2D/PathFollow2D/Boss" to="." method="_on_boss_killed"]

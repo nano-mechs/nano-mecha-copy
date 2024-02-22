@@ -63,6 +63,6 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_xfhm6")
 value = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, -32)
-scale = Vector2(0.904762, 0.94958)
+position = Vector2(-6, -10)
+scale = Vector2(0.419048, 0.302521)
 texture = ExtResource("4_7uptb")
