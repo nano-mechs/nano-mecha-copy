@@ -6,4 +6,4 @@ func _on_player_killed():
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 
 func _on_boss_killed():
-	print("congrats")
+	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
