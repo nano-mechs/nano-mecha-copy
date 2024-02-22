@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var health = 1
 
+# TODO: show everyone the new way
 @onready var player = get_node("/root/Game/Player")
 
 
@@ -22,7 +23,7 @@ func teleport():
 #	#teleports within set distance of original spot
 	var rand_pos = Vector2(randf_range(-teleportDistance, teleportDistance), randf_range(-teleportDistance, teleportDistance))
 	#for fixed distance within play area#
-	#var rand_pos = Vector2(play_area_width * randf(), play_area_height * randf()) 
+	#var rand_pos = Vector2(play_area_width * randf(), play_area_height * randf())
 	global_position += rand_pos
 
 

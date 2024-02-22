@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Shoot"):
 		%Gun.shoot()
 
-func take_damage(damage = 1):
+func take_damage(damage = 5):
 	health -= damage
 	%ProgressBar.value = health
 	if health <= 0.0:

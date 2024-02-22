@@ -29,7 +29,7 @@ func win_level():
 	State.prev_scene = get_tree().current_scene.scene_file_path
 	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 	# get_tree().change_scene_to_file(<this scene hasn't been made yet>)
-	
+
 
 func spawn_enemy():
 	if enemies.spawned == enemies.max_spawn_count: return
