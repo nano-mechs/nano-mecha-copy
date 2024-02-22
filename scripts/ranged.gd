@@ -8,9 +8,11 @@ var health = 1
 
 
 func _physics_process(delta):
-	var direction = global_position.direction_to(target.global_position)
-	velocity = direction * 300.0
-	move_and_slide()
+	# only move to the player until a certain distance away
+	if global_position.distance_to(target.global_position) >= 700:
+		var direction = global_position.direction_to(target.global_position)
+		velocity = direction * 300.0
+		move_and_slide()
 
 	%Gun.look_at(target.global_position)
 
