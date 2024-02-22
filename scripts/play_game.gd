@@ -26,9 +26,10 @@ func _on_enemy_killed():
 
 # TODO: switch to "inbetween levels" scene to give player a break/savepoint
 func win_level():
-	State.level += 1
+	State.prev_scene = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 	# get_tree().change_scene_to_file(<this scene hasn't been made yet>)
-	print("win level")
+	
 
 func spawn_enemy():
 	if enemies.spawned == enemies.max_spawn_count: return

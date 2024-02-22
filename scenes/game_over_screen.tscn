@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba1ca26xksgie"]
+[gd_scene load_steps=2 format=3 uid="uid://bs06tgt2hgttf"]
 
 [ext_resource type="Script" path="res://scripts/game_over_screen.gd" id="1_s3oh4"]
 
@@ -9,6 +9,7 @@ script = ExtResource("1_s3oh4")
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(1, 0, 0, 0.392157)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 1
@@ -26,6 +27,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "Game Over"
+metadata/_edit_use_anchors_ = true
 
 [node name="RestartButton" type="Button" parent="ColorRect"]
 unique_name_in_owner = true
@@ -43,5 +45,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Restart"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
