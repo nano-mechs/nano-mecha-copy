@@ -5,14 +5,15 @@
 [sub_resource type="GDScript" id="GDScript_k2ydk"]
 script/source = "extends CharacterBody2D
 
+# EVERY MOB SHOULD HAVE A KILLED SIGNAL
+signal killed
 var health = 100
 
-@onready var player = get_node(\"/root/Game/Player\")
-
-func take_damage():
-	health -= 1
+func take_damage(damage = 5):
+	health -= damage
 	%BossHealth.value = health
-	if health == 0:
+	if health <= 0:
+		killed.emit()
 		queue_free()
 		const SMOKE_EXPLOSION = preload(\"res://scenes/smoke_explosion.tscn\")
 		var smoke = SMOKE_EXPLOSION.instantiate()
