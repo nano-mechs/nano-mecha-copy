@@ -1,11 +1,6 @@
 extends Node2D
 
 
-func _on_player_health_depleted():
-	%GameOver.visible = true
-	get_tree().paused = true
-
-
-func _on_start_over_pressed():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
+func _on_player_killed():
+	State.prev_scene = get_tree().current_scene.scene_file_path
+	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
