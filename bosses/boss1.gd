@@ -1,13 +1,12 @@
 extends CharacterBody2D
-
-var health = 100
+# EVERY MOB SHOULD HAVE A KILLED SIGNAL
 signal killed
-@onready var player = get_node("/root/Game/Player")
+var health = 100
 
-func take_damage():
-	health -= 1
+func take_damage(damage = 5):
+	health -= damage
 	%BossHealth.value = health
-	if health == 0:
+	if health <= 0:
 		killed.emit()
 		queue_free()
 		const SMOKE_EXPLOSION = preload("res://scenes/smoke_explosion.tscn")

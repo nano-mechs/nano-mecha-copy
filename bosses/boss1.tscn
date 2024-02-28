@@ -1,25 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkeu7ym4aivrh"]
 
+[ext_resource type="Script" path="res://scripts/bosses/boss1.gd" id="1_lsl5i"]
 [ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/Art/Enviroment/bot.png" id="2_oq53n"]
-
-[sub_resource type="GDScript" id="GDScript_k2ydk"]
-script/source = "extends CharacterBody2D
-
-# EVERY MOB SHOULD HAVE A KILLED SIGNAL
-signal killed
-var health = 100
-
-func take_damage(damage = 5):
-	health -= damage
-	%BossHealth.value = health
-	if health <= 0:
-		killed.emit()
-		queue_free()
-		const SMOKE_EXPLOSION = preload(\"res://scenes/smoke_explosion.tscn\")
-		var smoke = SMOKE_EXPLOSION.instantiate()
-		get_parent().add_child(smoke)
-		smoke.global_position = global_position
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
 size = Vector2(342.5, 337)
@@ -27,7 +9,7 @@ size = Vector2(342.5, 337)
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 2
-script = SubResource("GDScript_k2ydk")
+script = ExtResource("1_lsl5i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(90, 95)
