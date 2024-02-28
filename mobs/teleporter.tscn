@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvbqvcwyovguo"]
 
-[ext_resource type="Script" path="res://scripts/teleporter.gd" id="1_4my84"]
+[ext_resource type="Script" path="res://scenes/mobs/mobs/teleporter.gd" id="1_4my84"]
 [ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="2_cf875"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3ht"]
