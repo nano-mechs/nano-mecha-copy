@@ -13,7 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_7skue")
 
 [node name="8-yR8EnRbZcn9v3nt" type="Sprite2D" parent="."]
-position = Vector2(-84, -440)
+position = Vector2(465, 188)
 texture = ExtResource("2_jbir4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
