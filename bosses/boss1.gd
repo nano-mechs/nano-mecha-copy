@@ -1,11 +1,19 @@
 extends CharacterBody2D
+
 # EVERY MOB SHOULD HAVE A KILLED SIGNAL
 signal killed
 var health = 100
+var speed = 40
+
+func _physics_process(delta):
+	%MoveProgress.progress += speed
+	# DO NOT CHANGE TO %MoveProgress.global_position
+	# IT JUST WORKS LIKE THIS, I DON'T KNOW WHY
+	global_position = %MoveProgress.position
 
 func take_damage(damage = 5):
 	health -= damage
-	%BossHealth.value = health
+	%HealthBar.value = health
 	if health <= 0:
 		killed.emit()
 		queue_free()
