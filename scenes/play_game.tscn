@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="2_gvt6s"]
 [ext_resource type="Texture2D" uid="uid://dx3qh2c27nqf" path="res://sprites/tiles.png" id="3_7rrfa"]
 [ext_resource type="Texture2D" uid="uid://dd6ja0tv6vuq5" path="res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png" id="3_rkdct"]
+[ext_resource type="Curve2D" uid="uid://bxujn83i44atk" path="res://mobs/mob_spawn_path.tres" id="5_mh0di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8rk4a"]
 texture = ExtResource("3_7rrfa")
@@ -12,12 +13,6 @@ texture = ExtResource("3_7rrfa")
 
 [sub_resource type="TileSet" id="TileSet_vnm54"]
 sources/0 = SubResource("TileSetAtlasSource_8rk4a")
-
-[sub_resource type="Curve2D" id="Curve2D_4xyvb"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -100, -100, 0, 0, 0, 0, 3940, -100, 0, 0, 0, 0, 3940, 2260, 0, 0, 0, 0, -100, 2260, 0, 0, 0, 0, -100, -100)
-}
-point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_min3a"]
 size = Vector2(50, 2160)
@@ -46,19 +41,22 @@ unique_name_in_owner = true
 position = Vector2(1920, 1080)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+unique_name_in_owner = true
+zoom = Vector2(0.7, 0.7)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.299
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_4xyvb")
+[node name="EnemyPath" type="Path2D" parent="."]
+curve = ExtResource("5_mh0di")
 
-[node name="EnemySpawnLine" type="PathFollow2D" parent="Path2D"]
+[node name="EnemyPathProgress" type="PathFollow2D" parent="EnemyPath"]
 unique_name_in_owner = true
 position = Vector2(-100, -100)
 
 [node name="Walls" type="StaticBody2D" parent="."]
+unique_name_in_owner = true
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]
 position = Vector2(0, 1080)

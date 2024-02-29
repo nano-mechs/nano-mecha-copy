@@ -4,10 +4,7 @@
 extends Node
 
 # global vars accessed via State.<var name>
-var prev_scene = null
 var level = 1
-var lives = 3
-
 
 # returns a hash that contains the enemy types
 func assign_enemy_props():
@@ -31,6 +28,11 @@ func assign_enemy_props():
 				preload("res://mobs/mob.tscn")
 			]
 	return enemies
+
+# every 3 levels, becomes a boss fight
+func assign_boss():
+	match level:
+		3: return load("res://bosses/boss1.tscn").instantiate()
 
 # returns the string for the current level's background sprite
 func assign_bg_sprite():
