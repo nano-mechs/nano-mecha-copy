@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqmmg2puqjfvm"]
 
-[ext_resource type="Script" path="res://scenes/mobs/mobs/mob2.gd" id="1_leell"]
+[ext_resource type="Script" path="res://mobs/mob2.gd" id="1_leell"]
 [ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/Art/Enviroment/bot.png" id="2_20ekc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]

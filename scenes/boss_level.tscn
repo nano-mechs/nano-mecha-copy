@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://blppi5qivjwc5"]
+[gd_scene load_steps=9 format=3 uid="uid://blppi5qivjwc5"]
 
 [ext_resource type="Script" path="res://scripts/boss_level.gd" id="1_8mob5"]
 [ext_resource type="Texture2D" uid="uid://clklnycpr5ufy" path="res://sprites/backgrounds/spaceboss.png" id="2_5wimh"]
 [ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="3_33074"]
-[ext_resource type="Script" path="res://scripts/PathFollow2D.gd" id="4_lmkvr"]
-[ext_resource type="PackedScene" uid="uid://bkeu7ym4aivrh" path="res://scenes/Boss.tscn" id="5_7igt0"]
+[ext_resource type="PackedScene" uid="uid://gsexful460qo" path="res://bosses/boss1_path.tscn" id="4_m24mv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_723mx"]
 size = Vector2(2521, 81)
@@ -17,12 +16,6 @@ size = Vector2(67, 1860)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgwsp"]
 size = Vector2(2525.88, 39.5)
-
-[sub_resource type="Curve2D" id="Curve2D_5kwjn"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -369, 1851, 0, 0, 0, 0, 838, 366, 0, 0, 0, 0, 1788, 1835, 0, 0, 0, 0, -372, 1854, 0, 0, 0, 0, 1468, 895, 0, 0, 0, 0, -223, 817, 0, 0, 0, 0, 1785, 1818, 0, 0, 0, 0, -369, 1851, 0, 0, 0, 0, 1785, 1823, 0, 0, 0, 0, 1739, 370, 0, 0, 0, 0, 1723, 353, 0, 0, 0, 0, -276, 386, 0, 0, 0, 0, -267, 1794, 0, 0, 0, 0, 1782, 1812, 0, 0, 0, 0, -369, 1851, 0, 0, 0, 0, 1788, 1809, 0, 0, 0, 0, 1788, 1830, 0, 0, 0, 0, -369, 1851)
-}
-point_count = 18
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -60,15 +53,6 @@ shape = SubResource("RectangleShape2D_vpsx0")
 position = Vector2(573.938, 1850)
 shape = SubResource("RectangleShape2D_fgwsp")
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_5kwjn")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(-369, 1851)
-rotation = -0.888302
-script = ExtResource("4_lmkvr")
-
-[node name="Boss" parent="Path2D/PathFollow2D" instance=ExtResource("5_7igt0")]
+[node name="Path2D" parent="." instance=ExtResource("4_m24mv")]
 
 [connection signal="killed" from="Player" to="." method="_on_player_killed"]
-[connection signal="killed" from="Path2D/PathFollow2D/Boss" to="." method="_on_boss_killed"]

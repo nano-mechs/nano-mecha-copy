@@ -2,16 +2,20 @@ extends Node2D
 
 # assigned in State
 var enemies
+var boss
 
 func _ready():
 	start_level()
 
-# TODO: assign proper values to `enemies` every level
+# turns into boss level every 3rd level
 func start_level():
-	enemies = State.assign_enemy_props()
-	%Timer.start()
+	if State.level % 3 == 0:
+		boss = State.assign_boss()
+	else:
+		enemies = State.assign_enemy_props()
+		%EnemySpawnTimer.start()
 
-func _on_timer_timeout():
+func _on_enemy_spawn_timer_timeout():
 	spawn_enemy()
 
 func _on_player_killed():

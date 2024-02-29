@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkeu7ym4aivrh"]
 
-[ext_resource type="Script" path="res://scripts/bosses/boss1.gd" id="1_lsl5i"]
+[ext_resource type="Script" path="res://bosses/boss1.gd" id="1_lsl5i"]
 [ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/Art/Enviroment/bot.png" id="2_oq53n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
