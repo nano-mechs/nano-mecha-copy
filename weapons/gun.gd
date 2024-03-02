@@ -1,6 +1,6 @@
 extends Area2D
 
-const BULLET = preload("res://scenes/bullet.tscn")
+const BULLET = preload("res://weapons/bullet.tscn")
 
 func shoot():
 	var new_bullet = BULLET.instantiate()
