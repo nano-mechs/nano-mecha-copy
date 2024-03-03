@@ -1,3 +1,4 @@
+# walls exist in layers 1 2 3 to interact with anything and everything
 extends StaticBody2D
 
 # removes problem with player asking for damage on wall contact

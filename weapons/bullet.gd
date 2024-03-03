@@ -5,6 +5,7 @@ var speed = 1000
 var range = 1200
 var damage = 1
 
+
 func _physics_process(delta):
 	var direction = Vector2.RIGHT.rotated(rotation)
 	position += direction * speed * delta

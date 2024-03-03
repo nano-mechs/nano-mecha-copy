@@ -10,7 +10,7 @@ var speed  = 1000
 
 func _ready():
 	%Gun.reload.wait_time = reload_time
-	%Gun.target = "mob"
+	%Gun.target = "enemy"
 
 # runs 60 times per second
 func _physics_process(delta):

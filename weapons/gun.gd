@@ -7,10 +7,14 @@ var can_shoot = true
 var target
 @onready var reload = %Reload
 
+
 # mask layer to set on every new bullet
+# a.k.a. sets the targetable enemies
+# bit masks so they count in multiples of 2
+# i.e. player is in layer 3 but bitmap 4 so walls(bitmap 1) + player(bitmap 4) = bitmap 5
 enum mask {
-	player = 4, # shows up as mask layer 3 on the gui but it's 4 as a bit mask
-	mob = 2
+	player = 5,
+	enemy  = 3
 }
 
 
@@ -21,7 +25,7 @@ func shoot():
 		new_bullet.global_position = %ShootingPoint.global_position
 		new_bullet.global_rotation = %ShootingPoint.global_rotation
 		match target:
-			"mob":    new_bullet.collision_mask = mask.mob
+			"enemy":  new_bullet.collision_mask = mask.enemy
 			"player": new_bullet.collision_mask = mask.player
 		%ShootingPoint.add_child(new_bullet)
 		%Reload.start()
