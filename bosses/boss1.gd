@@ -1,3 +1,5 @@
+# does not exist in collision layer 1 to pass through the player
+# no need to worry about passing through walls because it has a strict path to follow
 extends CharacterBody2D
 
 # EVERY MOB SHOULD HAVE A KILLED SIGNAL

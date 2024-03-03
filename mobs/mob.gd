@@ -1,3 +1,4 @@
+# every enemy exists in collision layer 2
 extends CharacterBody2D
 
 signal killed # everything emits a killed signal for when they... get killed
@@ -5,7 +6,7 @@ signal killed # everything emits a killed signal for when they... get killed
 var target # value assigned(usually the player) on spawn from the parent scene
 var health = 1
 var speed  = 300
-var damage = 1
+var damage = 1 # damage gets used when making contact with player
 
 
 func _physics_process(delta):

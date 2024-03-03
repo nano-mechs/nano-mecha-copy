@@ -1,12 +1,15 @@
+# exists in collision layer 1 and 3 to interact with walls and enemies
+# mask layer for attacking enemies determined by weapon targets
+# hurtbox mask layer looks for collisions in layer 2 where only enemies are
 extends CharacterBody2D
 
 signal killed
-
+var reload_time = 0.4
 var health = 100
-var speed = 1000
+var speed  = 1000
 
 func _ready():
-	%Gun.reload.wait_time = 0.4
+	%Gun.reload.wait_time = reload_time
 	%Gun.target = "mob"
 
 # runs 60 times per second

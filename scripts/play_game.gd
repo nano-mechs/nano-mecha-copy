@@ -5,6 +5,7 @@ var enemies
 var boss
 var scene_switched = false # in case something tries to switch scenes when it already switched
 
+
 # turns into boss level every 3rd level
 func _ready():
 	if State.level % 3 == 0:
@@ -16,15 +17,18 @@ func _ready():
 		enemies = State.assign_enemy_props()
 		%EnemySpawnTimer.start()
 
+
 func win_level():
 	if scene_switched: return
 	scene_switched = true
 	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 
+
 func lose_level():
 	if scene_switched: return
 	scene_switched = true
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+
 
 func _on_player_killed():
 	call_deferred("lose_level")
@@ -36,11 +40,13 @@ func _on_player_killed():
 func _on_enemy_spawn_timer_timeout():
 	spawn_enemy()
 
+
 # signal attached to every enemy by spawn_enemy() method
 func _on_enemy_killed():
 	enemies.killed += 1
 	if enemies.killed == enemies.max_spawn_count:
 		call_deferred("win_level") # call_deferred to call the function at the end of a tick
+
 
 func spawn_enemy():
 	if enemies.spawned == enemies.max_spawn_count: return

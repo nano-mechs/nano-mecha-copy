@@ -1,3 +1,4 @@
+# target layers determined and set in parent
 extends Area2D
 
 # re-assigned based on owner/powerup/etc
@@ -6,11 +7,12 @@ var can_shoot = true
 var target
 @onready var reload = %Reload
 
-# for setting the target
+# mask layer to set on every new bullet
 enum mask {
-	player = 4, # shows up as collision mask 3 on the gui but it's 4 as a bit mask
+	player = 4, # shows up as mask layer 3 on the gui but it's 4 as a bit mask
 	mob = 2
 }
+
 
 func shoot():
 	if can_shoot:
@@ -25,5 +27,7 @@ func shoot():
 		%Reload.start()
 
 
+# default reload time of 1s for this weapon
+# can be set in parent
 func _on_reload_timeout():
 	can_shoot = true

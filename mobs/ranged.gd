@@ -1,3 +1,4 @@
+# uses the same gun as player but stats(reload time, target layer, etc) are different
 extends CharacterBody2D
 
 signal killed
@@ -7,8 +8,10 @@ var health    = 1
 var speed     = 300
 var damage    = 2
 
+
 func _ready():
 	%Gun.target = "player"
+
 
 func _physics_process(delta):
 	# only move to the player until a certain distance away

@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 signal killed
@@ -7,15 +8,22 @@ var health   = 2
 var speed    = 500
 var damage   = 1
 var tp_range = 350 # Adjust as needed
+# TODO teleport animation or something
+# var tp_flash = preload(new teleport visuals scene)
 
 var play_area_width = 1920 * 2;
 var play_area_height = 1080 * 2;
 
 
 func teleport():
-#	#teleports within set distance of original spot
-	var current_position = global_position
-	var tp_position = Vector2(randf_range(-tp_range, tp_range), randf_range(-tp_range, tp_range))
+	# TODO teleport animation or something
+	# var tp = tp_flash.instantiate()
+	# tp.global_position = global_position
+	# get_parent().add_child(tp)
+
+	# teleports within set distance of original spot
+	var tp_position = Vector2(randf_range(-tp_range, tp_range),
+							  randf_range(-tp_range, tp_range))
 	global_position += tp_position
 	# keep this thing within bounds
 	if global_position.x > play_area_height:
@@ -43,6 +51,8 @@ func take_damage(damage = 1):
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+	# teleport after getting hit
+	teleport()
 
 
 func _on_timer_timeout():

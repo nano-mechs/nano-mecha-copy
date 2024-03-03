@@ -7,10 +7,12 @@ var health = 3
 var speed  = 250
 var damage = 3
 
+
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
 	velocity = direction * speed
 	move_and_slide()
+
 
 func take_damage(damage = 1):
 	health -= damage
