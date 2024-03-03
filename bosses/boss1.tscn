@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkeu7ym4aivrh"]
 
 [ext_resource type="Script" path="res://bosses/boss1.gd" id="1_lsl5i"]
-[ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/Art/Enviroment/bot.png" id="2_oq53n"]
+[ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/mobs/bot.png" id="2_oq53n"]
 [ext_resource type="Curve2D" uid="uid://ci5mwy4v2vmli" path="res://bosses/boss1_path.tres" id="3_pstyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
