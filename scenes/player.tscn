@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://cc6pwcinh6n68" path="res://sprites/player/ball.png" id="4_7uptb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1ho"]
-size = Vector2(176, 144)
+size = Vector2(175, 142)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we68d"]
-size = Vector2(176.5, 147)
+size = Vector2(176.5, 144.5)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en11l"]
 bg_color = Color(0.223529, 0.223529, 0.223529, 1)
@@ -17,32 +17,26 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfhm6"]
-bg_color = Color(0.196078, 0.709804, 0.372549, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl56n"]
+bg_color = Color(0, 0.662745, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
+platform_floor_layers = 0
 script = ExtResource("1_o32ye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-6, -10)
+position = Vector2(0, -1.90735e-06)
 scale = Vector2(0.419048, 0.302521)
 texture = ExtResource("4_7uptb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, -10)
 shape = SubResource("RectangleShape2D_3u1ho")
 
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(-0.75, -1.5)
 shape = SubResource("RectangleShape2D_we68d")
 debug_color = Color(0.8, 0, 0.188235, 0.419608)
 
@@ -60,5 +54,5 @@ offset_right = 105.0
 offset_bottom = -103.0
 rotation = -0.000420329
 theme_override_styles/background = SubResource("StyleBoxFlat_en11l")
-theme_override_styles/fill = SubResource("StyleBoxFlat_xfhm6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bl56n")
 value = 100.0

@@ -1,17 +1,23 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvbqvcwyovguo"]
 
 [ext_resource type="Script" path="res://mobs/teleporter.gd" id="1_4my84"]
-[ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="2_cf875"]
+[ext_resource type="Texture2D" uid="uid://buwdsbj4hd6bg" path="res://sprites/mobs/teleporter.PNG" id="2_qbffm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3ht"]
-size = Vector2(163, 172)
+size = Vector2(83, 71)
 
 [node name="Teleporter" type="CharacterBody2D"]
+collision_layer = 3
+platform_floor_layers = 0
 script = ExtResource("1_4my84")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.791262, 0.741379)
-texture = ExtResource("2_cf875")
+texture = ExtResource("2_qbffm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ji3ht")
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

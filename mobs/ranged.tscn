@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://mobs/ranged.gd" id="1_xoxsg"]
 [ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="2_dwftn"]
-[ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://scenes/gun.tscn" id="4_kkp67"]
+[ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="4_kkp67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprgl"]
 size = Vector2(163, 172)
 
 [node name="Ranged" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+platform_floor_layers = 0
 script = ExtResource("1_xoxsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

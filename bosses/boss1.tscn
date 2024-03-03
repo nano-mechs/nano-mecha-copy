@@ -8,8 +8,8 @@
 size = Vector2(382, 390)
 
 [node name="Boss" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+platform_floor_layers = 0
 script = ExtResource("1_lsl5i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -22,13 +22,11 @@ shape = SubResource("RectangleShape2D_upyca")
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 modulate = Color(0, 0.56932, 0.460203, 0.945098)
-offset_left = -159.0
-offset_top = 170.0
-offset_right = 159.0
-offset_bottom = 199.0
+offset_left = -160.0
+offset_top = 200.0
+offset_right = 170.0
+offset_bottom = 230.0
 value = 100.0
-rounded = true
-allow_greater = true
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = ExtResource("3_pstyj")
