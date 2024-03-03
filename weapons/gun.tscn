@@ -10,7 +10,6 @@ radius = 500.064
 script = ExtResource("1_55psu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_f87bw")
 
 [node name="Marker2D" type="Marker2D" parent="."]
