@@ -85,7 +85,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
-State="*res://scripts/state.gd"
+State="*res://scripts/play_game_state.gd"
 
 [display]
 

@@ -13,7 +13,7 @@ func assign_enemy_props():
 	match level:
 		1:
 			enemies.max_spawn_count = 10
-			enemies.types = [ preload("res://mobs/ranged.tscn") ]
+			enemies.types = [ preload("res://mobs/mob.tscn") ]
 		2:
 			enemies.max_spawn_count = 20
 			enemies.types = [
