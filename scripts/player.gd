@@ -2,31 +2,28 @@ extends CharacterBody2D
 
 signal killed
 
-# stats
-var health = 100.0
-# TODO: move this to each mob to make their damage unique
-const DAMAGE_RATE = 50.0
+var health = 100
+var speed = 1000
 
 # runs 60 times per second
 func _physics_process(delta):
+	# move direction & speed
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * 600
+	velocity = direction * speed
 	move_and_slide()
 
-	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	# check for contact with enemies and receive damage
+	var overlapping_enemies = %HurtBox.get_overlapping_bodies()
+	for enemy in overlapping_enemies:
+		take_damage(enemy.damage)
 
-	if overlapping_mobs.size() > 0:
-		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-		%ProgressBar.value = health
-	if health <= 0.0:
-		killed.emit()
-
+	# weapon
 	%Gun.look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot"):
 		%Gun.shoot()
 
-func take_damage(damage = 5):
+func take_damage(damage = 1):
 	health -= damage
-	%ProgressBar.value = health
-	if health <= 0.0:
+	%HealthBar.value = health
+	if health <= 0:
 		killed.emit()

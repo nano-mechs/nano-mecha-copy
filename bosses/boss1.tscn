@@ -8,7 +8,7 @@
 size = Vector2(382, 390)
 
 [node name="Boss" type="CharacterBody2D"]
-collision_layer = 3
+collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_lsl5i")
 

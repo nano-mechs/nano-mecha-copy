@@ -3,15 +3,17 @@ extends CharacterBody2D
 signal killed
 
 var target
+var health    = 1
+var speed     = 300
+var damage    = 2
 var can_shoot = true
-var health = 1
 
 
 func _physics_process(delta):
 	# only move to the player until a certain distance away
-	if global_position.distance_to(target.global_position) >= 700:
+	if global_position.distance_to(target.global_position) >= 800:
 		var direction = global_position.direction_to(target.global_position)
-		velocity = direction * 300.0
+		velocity = direction * speed
 		move_and_slide()
 
 	%Gun.look_at(target.global_position)
@@ -21,9 +23,9 @@ func _physics_process(delta):
 		%Gun.shoot()
 
 
-func take_damage():
-	health -= 1
-	if health == 0:
+func take_damage(damage = 1):
+	health -= damage
+	if health <= 0:
 		killed.emit()
 		queue_free()
 		const SMOKE_EXPLOSION = preload("res://scenes/smoke_explosion.tscn")
