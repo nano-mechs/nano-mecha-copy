@@ -16,12 +16,13 @@ func _ready():
 		%EnemySpawnTimer.start()
 
 func win_level():
-	State.prev_scene = get_tree().current_scene.scene_file_path
 	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 
-func _on_player_killed():
-	State.prev_scene = get_tree().current_scene.scene_file_path
+func lose_level():
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
+
+func _on_player_killed():
+	call_deferred("lose_level")
 
 #########################
 ## MOB LEVEL FUNCTIONS ##
