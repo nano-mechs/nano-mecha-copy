@@ -19,5 +19,6 @@ shape = SubResource("RectangleShape2D_ji3ht")
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

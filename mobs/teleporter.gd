@@ -1,42 +1,49 @@
 extends CharacterBody2D
 
-var health = 1
+signal killed
 
-# TODO: show everyone the new way
-@onready var player = get_node("/root/Game/Player")
-
+var target
+var health   = 2
+var speed    = 500
+var damage   = 1
+var tp_range = 350 # Adjust as needed
 
 var play_area_width = 1920 * 2;
 var play_area_height = 1080 * 2;
 
-var teleportTimer = 0
-var teleportInterval = 1 # Adjust as needed
-var teleportDistance = 350 # Adjust as needed
-
-func _process(delta):
-	teleportTimer += delta
-	if teleportTimer >= teleportInterval:
-		teleport()
-		teleportTimer = 0
 
 func teleport():
 #	#teleports within set distance of original spot
-	var rand_pos = Vector2(randf_range(-teleportDistance, teleportDistance), randf_range(-teleportDistance, teleportDistance))
-	#for fixed distance within play area#
-	#var rand_pos = Vector2(play_area_width * randf(), play_area_height * randf())
-	global_position += rand_pos
+	var current_position = global_position
+	var tp_position = Vector2(randf_range(-tp_range, tp_range), randf_range(-tp_range, tp_range))
+	global_position += tp_position
+	# keep this thing within bounds
+	if global_position.x > play_area_height:
+		global_position.x -= play_area_height
+	elif global_position.x < 0:
+		global_position.x += play_area_height
+	if global_position.y > play_area_width:
+		global_position.y -= play_area_width
+	elif global_position.y < 0:
+		global_position.y += play_area_width
 
 
 func _physics_process(delta):
-	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * 300.0
+	var direction = global_position.direction_to(target.global_position)
+	velocity = direction * speed
 	move_and_slide()
 
-func take_damage():
-	health -= 1
-	if health == 0:
+
+func take_damage(damage = 1):
+	health -= damage
+	if health <= 0:
+		killed.emit()
 		queue_free()
 		const SMOKE_EXPLOSION = preload("res://scenes/smoke_explosion.tscn")
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
+
+
+func _on_timer_timeout():
+	teleport()
