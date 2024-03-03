@@ -22,8 +22,7 @@ texture = ExtResource("1_mbtnx")
 unique_name_in_owner = true
 position = Vector2(27, -11)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
-autostart = true
+[node name="Reload" type="Timer" parent="."]
+unique_name_in_owner = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

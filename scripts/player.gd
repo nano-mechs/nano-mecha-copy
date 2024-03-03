@@ -5,6 +5,10 @@ signal killed
 var health = 100
 var speed = 1000
 
+func _ready():
+	%Gun.reload.wait_time = 0.4
+	%Gun.target = "mob"
+
 # runs 60 times per second
 func _physics_process(delta):
 	# move direction & speed

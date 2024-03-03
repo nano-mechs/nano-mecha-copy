@@ -58,6 +58,7 @@ position = Vector2(100, 100)
 
 [node name="Walls" type="StaticBody2D" parent="."]
 unique_name_in_owner = true
+collision_layer = 7
 script = ExtResource("6_urmvp")
 
 [node name="Left" type="CollisionShape2D" parent="Walls"]

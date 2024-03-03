@@ -21,8 +21,3 @@ shape = SubResource("RectangleShape2D_mprgl")
 
 [node name="Gun" parent="." instance=ExtResource("4_kkp67")]
 unique_name_in_owner = true
-
-[node name="Reload" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Reload" to="." method="_on_reload_timeout"]

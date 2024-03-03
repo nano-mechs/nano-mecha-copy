@@ -6,8 +6,9 @@ var target
 var health    = 1
 var speed     = 300
 var damage    = 2
-var can_shoot = true
 
+func _ready():
+	%Gun.target = "player"
 
 func _physics_process(delta):
 	# only move to the player until a certain distance away
@@ -17,10 +18,7 @@ func _physics_process(delta):
 		move_and_slide()
 
 	%Gun.look_at(target.global_position)
-
-	if can_shoot:
-		can_shoot = false
-		%Gun.shoot()
+	%Gun.shoot()
 
 
 func take_damage(damage = 1):
@@ -32,7 +30,3 @@ func take_damage(damage = 1):
 		var smoke = SMOKE_EXPLOSION.instantiate()
 		get_parent().add_child(smoke)
 		smoke.global_position = global_position
-
-
-func _on_reload_timeout():
-	can_shoot = true
