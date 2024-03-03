@@ -3,6 +3,7 @@ extends Node2D
 # assigned in State
 var enemies
 var boss
+var scene_switched = false # in case something tries to switch scenes when it already switched
 
 # turns into boss level every 3rd level
 func _ready():
@@ -16,9 +17,13 @@ func _ready():
 		%EnemySpawnTimer.start()
 
 func win_level():
+	if scene_switched: return
+	scene_switched = true
 	get_tree().change_scene_to_file("res://scenes/transition_screen.tscn")
 
 func lose_level():
+	if scene_switched: return
+	scene_switched = true
 	get_tree().change_scene_to_file("res://scenes/game_over_screen.tscn")
 
 func _on_player_killed():
