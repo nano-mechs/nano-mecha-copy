@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="3_f0463"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1ho"]
-size = Vector2(175, 142)
+size = Vector2(15, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we68d"]
-size = Vector2(176.5, 144.5)
+size = Vector2(15, 22)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en11l"]
 bg_color = Color(0.223529, 0.223529, 0.223529, 1)
@@ -26,13 +26,13 @@ platform_floor_layers = 0
 script = ExtResource("1_o32ye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(5.10953, -4.83193)
-scale = Vector2(11.2812, 7.71199)
+scale = Vector2(10, 10)
 texture = ExtResource("2_e7i1i")
 region_enabled = true
-region_rect = Rect2(76.1582, 202.013, 17.4474, 22.579)
+region_rect = Rect2(76, 202, 15, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_3u1ho")
 
 [node name="HurtBox" type="Area2D" parent="."]
@@ -40,6 +40,7 @@ unique_name_in_owner = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_we68d")
 debug_color = Color(0.8, 0, 0.188235, 0.419608)
 

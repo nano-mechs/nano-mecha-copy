@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_cmlup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
-size = Vector2(163, 172)
+size = Vector2(14, 18)
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 3
@@ -12,11 +12,12 @@ platform_floor_layers = 0
 script = ExtResource("1_leell")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-12, 0)
-scale = Vector2(12.2273, 6.70833)
+scale = Vector2(10, 10)
 texture = ExtResource("2_cmlup")
 region_enabled = true
-region_rect = Rect2(119.762, 72.1593, 22.9013, 24.5977)
+region_rect = Rect2(125, 76, 14, 20)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_upyca")

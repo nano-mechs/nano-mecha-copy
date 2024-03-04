@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="4_kkp67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprgl"]
-size = Vector2(163, 172)
+size = Vector2(15, 23)
 
 [node name="Ranged" type="CharacterBody2D"]
 collision_layer = 3
@@ -13,13 +13,14 @@ platform_floor_layers = 0
 script = ExtResource("1_xoxsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.00001, 0)
-scale = Vector2(9.29563, 6.41417)
+scale = Vector2(10, 10)
 texture = ExtResource("2_nlts0")
 region_enabled = true
-region_rect = Rect2(146.203, 296.434, 20.8856, 23.7079)
+region_rect = Rect2(149, 296, 15, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_mprgl")
 
 [node name="Gun" parent="." instance=ExtResource("4_kkp67")]

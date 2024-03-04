@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_60k4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3ht"]
-size = Vector2(83, 71)
+size = Vector2(8, 10)
 
 [node name="Teleporter" type="CharacterBody2D"]
 collision_layer = 3
@@ -12,13 +12,14 @@ platform_floor_layers = 0
 script = ExtResource("1_4my84")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(7.62939e-06, 1)
-scale = Vector2(6.70652, 4.59091)
+scale = Vector2(10, 10)
 texture = ExtResource("2_60k4r")
 region_enabled = true
-region_rect = Rect2(48.5014, 452.897, 23.7495, 22.9013)
+region_rect = Rect2(56, 458, 8, 22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -60)
+scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_ji3ht")
 
 [node name="Timer" type="Timer" parent="."]
