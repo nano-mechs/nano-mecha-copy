@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkeu7ym4aivrh"]
 
 [ext_resource type="Script" path="res://bosses/boss1.gd" id="1_lsl5i"]
-[ext_resource type="Texture2D" uid="uid://cs28cubwndvh0" path="res://sprites/mobs/bot.png" id="2_oq53n"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_cstjy"]
 [ext_resource type="Curve2D" uid="uid://ci5mwy4v2vmli" path="res://bosses/boss1_path.tres" id="3_pstyj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
@@ -13,8 +13,11 @@ platform_floor_layers = 0
 script = ExtResource("1_lsl5i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_oq53n")
+position = Vector2(-6, 0)
+scale = Vector2(16.8442, 21.0512)
+texture = ExtResource("2_cstjy")
+region_enabled = true
+region_rect = Rect2(119.311, 802.167, 26.4464, 21.9855)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_upyca")
