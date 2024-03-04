@@ -33,6 +33,13 @@ func lose_level():
 func _on_player_killed():
 	call_deferred("lose_level")
 
+
+func drop_powerup(coords):
+	var powerup = State.powerups.pick_random().instantiate()
+	powerup.target = %Player
+	powerup.global_position = coords
+	add_child(powerup)
+
 #########################
 ## MOB LEVEL FUNCTIONS ##
 #########################
@@ -42,8 +49,11 @@ func _on_enemy_spawn_timer_timeout():
 
 
 # signal attached to every enemy by spawn_enemy() method
-func _on_enemy_killed():
+func _on_enemy_killed(coords):
 	enemies.killed += 1
+	print(coords)
+	if randf() <= 0.05: # 5% chance to drop a powerup
+		drop_powerup(coords)
 	if enemies.killed == enemies.max_spawn_count:
 		call_deferred("win_level") # call_deferred to call the function at the end of a tick
 

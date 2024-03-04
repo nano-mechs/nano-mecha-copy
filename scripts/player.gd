@@ -6,16 +6,15 @@ extends CharacterBody2D
 signal killed
 
 var health = 100
-var speed  = 1000
-
+const base_speed       = 1000
 const base_reload_time = 0.2
 const base_bullet      = preload("res://weapons/bullet.tscn")
-var reload_time = base_reload_time
+var speed       = base_speed
 var bullet      = base_bullet
-var status = {}
+
 
 func _ready():
-	%Gun.reload.wait_time = reload_time
+	%Gun.reload.wait_time = base_reload_time
 	%Gun.target = "enemy"
 
 
@@ -42,3 +41,19 @@ func take_damage(damage = 1):
 	%HealthBar.value = health
 	if health <= 0:
 		killed.emit()
+
+
+func get_status(stats):
+	speed                  += stats.speed
+	%Gun.reload.wait_time   = stats.reload_time
+	if stats.bullet: bullet = stats.bullet
+	else: stats.bullet      = base_bullet
+
+	%StatusTimer.start() # also refreshes status time when new status get
+
+
+# revert changed stats when powerup timer runs out
+func _on_status_timer_timeout():
+	speed  = base_speed
+	bullet = base_bullet
+	%Gun.reload.wait_time = base_reload_time

@@ -5,6 +5,9 @@ extends Node
 
 # global vars accessed via State.<var name>
 var level = 1
+var powerups = [
+	preload("res://powerups/piercer.tscn")
+]
 
 # returns a hash that contains the enemy types
 func assign_enemy_props():
@@ -12,16 +15,19 @@ func assign_enemy_props():
 
 	match level:
 		1:
-			enemies.max_spawn_count = 10
-			enemies.types = [ preload("res://mobs/mob.tscn") ]
+			enemies.max_spawn_count = 100
+			enemies.types = [
+				preload("res://mobs/mob.tscn"),
+				#preload("res://mobs/teleporter.tscn"),
+			]
 		2:
-			enemies.max_spawn_count = 20
+			enemies.max_spawn_count = 200
 			enemies.types = [
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn")
 			]
 		4:
-			enemies.max_spawn_count = 30
+			enemies.max_spawn_count = 300
 			enemies.types = [
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn"),
@@ -29,12 +35,15 @@ func assign_enemy_props():
 			]
 	return enemies
 
+
 # every 3 levels, becomes a boss fight
 func assign_boss():
 	match level:
 		3: return load("res://bosses/boss1.tscn").instantiate()
 
+
 # returns the string for the current level's background sprite
+# TODO make it actually work
 func assign_bg_sprite():
 	match level:
 		1: return "res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png"

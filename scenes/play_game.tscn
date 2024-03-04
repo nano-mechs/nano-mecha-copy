@@ -40,7 +40,7 @@ autoplay = true
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.2
+wait_time = 0.3
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = ExtResource("5_mh0di")
