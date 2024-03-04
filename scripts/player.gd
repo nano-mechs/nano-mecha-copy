@@ -4,7 +4,7 @@
 extends CharacterBody2D
 
 signal killed
-var reload_time = 0.4
+var reload_time = 0.1
 var health = 100
 var speed  = 1000
 

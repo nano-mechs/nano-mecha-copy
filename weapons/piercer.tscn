@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wtvghck6t1h1"]
+[gd_scene load_steps=4 format=3 uid="uid://wtvghck6t1h1"]
 
 [ext_resource type="Script" path="res://weapons/piercer.gd" id="1_njarr"]
-[ext_resource type="Texture2D" uid="uid://d2i3xtvbevwee" path="res://weapons/bullets.tres" id="1_xfx85"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mb61i"]
-atlas = ExtResource("1_xfx85")
-region = Rect2(304, 331, 32, 10)
+[ext_resource type="Texture2D" uid="uid://wp6xvjh3ulb5" path="res://sprites/weapons/bullets_sheet.png" id="2_lypo5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gb106"]
 size = Vector2(32, 10)
@@ -17,7 +13,9 @@ collision_layer = 0
 script = ExtResource("1_njarr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_mb61i")
+texture = ExtResource("2_lypo5")
+region_enabled = true
+region_rect = Rect2(304, 331, 32, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gb106")
