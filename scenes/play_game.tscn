@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://50wbrbjubsuc"]
+[gd_scene load_steps=13 format=3 uid="uid://50wbrbjubsuc"]
 
 [ext_resource type="Script" path="res://scripts/play_game.gd" id="1_x3d58"]
 [ext_resource type="PackedScene" uid="uid://bvpqadsar27g" path="res://scenes/player.tscn" id="2_gvt6s"]
 [ext_resource type="Texture2D" uid="uid://dx3qh2c27nqf" path="res://sprites/tiles.png" id="3_7rrfa"]
 [ext_resource type="Texture2D" uid="uid://dd6ja0tv6vuq5" path="res://sprites/backgrounds/ExK_q-IVcAUM7Qu.png" id="3_rkdct"]
+[ext_resource type="AudioStream" uid="uid://d1m35xn685p88" path="res://audio/retro_metal.ogg" id="5_dkgg5"]
 [ext_resource type="Curve2D" uid="uid://bxujn83i44atk" path="res://mobs/mob_spawn_path.tres" id="5_mh0di"]
 [ext_resource type="Script" path="res://scripts/play_game_walls.gd" id="6_urmvp"]
 
@@ -45,9 +46,14 @@ position = Vector2(1920, 1080)
 unique_name_in_owner = true
 zoom = Vector2(0.7, 0.7)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("5_dkgg5")
+volume_db = 1.0
+autoplay = true
+
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 0.299
+wait_time = 0.2
 
 [node name="EnemyPath" type="Path2D" parent="."]
 curve = ExtResource("5_mh0di")
