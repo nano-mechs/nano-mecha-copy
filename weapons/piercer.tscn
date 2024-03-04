@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://wtvghck6t1h1"]
+
+[ext_resource type="Script" path="res://weapons/piercer.gd" id="1_njarr"]
+[ext_resource type="Texture2D" uid="uid://d2i3xtvbevwee" path="res://weapons/bullets.tres" id="1_xfx85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mb61i"]
+atlas = ExtResource("1_xfx85")
+region = Rect2(304, 331, 32, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb106"]
+size = Vector2(32, 10)
+
+[node name="Piercer" type="Area2D"]
+top_level = true
+scale = Vector2(3, 3)
+collision_layer = 0
+script = ExtResource("1_njarr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_mb61i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gb106")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,7 +1,7 @@
 extends Area2D
 
-var speed = 2000
-var damage = 1
+var speed = 3000
+var damage = 2
 
 
 func _physics_process(delta):
@@ -10,5 +10,7 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	queue_free()
+	# the only StaticBody2D in use atm are the walls so it's fine for now
+	if body is StaticBody2D:
+		queue_free()
 	body.take_damage(damage)
