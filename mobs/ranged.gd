@@ -4,9 +4,10 @@ extends CharacterBody2D
 signal killed
 
 var target
-var health    = 1
-var speed     = 300
-var damage    = 2
+var health = 1
+var speed  = 300
+var damage = 1
+var bullet = preload("res://weapons/bullet.tscn")
 
 
 func _ready():
@@ -21,7 +22,7 @@ func _physics_process(delta):
 		move_and_slide()
 
 	%Gun.look_at(target.global_position)
-	%Gun.shoot()
+	%Gun.shoot(bullet)
 
 
 func take_damage(damage = 1):

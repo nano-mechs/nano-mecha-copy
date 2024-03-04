@@ -4,13 +4,20 @@
 extends CharacterBody2D
 
 signal killed
-var reload_time = 0.1
+
 var health = 100
 var speed  = 1000
+
+const base_reload_time = 0.2
+const base_bullet      = preload("res://weapons/bullet.tscn")
+var reload_time = base_reload_time
+var bullet      = base_bullet
+var status = {}
 
 func _ready():
 	%Gun.reload.wait_time = reload_time
 	%Gun.target = "enemy"
+
 
 # runs 60 times per second
 func _physics_process(delta):
@@ -26,8 +33,9 @@ func _physics_process(delta):
 
 	# weapon
 	%Gun.look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot"):
-		%Gun.shoot()
+	if Input.is_action_pressed("shoot"):
+		%Gun.shoot(bullet)
+
 
 func take_damage(damage = 1):
 	health -= damage

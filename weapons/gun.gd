@@ -1,8 +1,6 @@
 # target layers determined and set in parent
 extends Area2D
 
-# re-assigned based on owner/powerup/etc
-var bullet = preload("res://weapons/bullet.tscn")
 var can_shoot = true
 var target
 @onready var reload = %Reload
@@ -18,7 +16,8 @@ enum mask {
 }
 
 
-func shoot():
+# every gun owner should have a bullet type to pass in
+func shoot(bullet):
 	if can_shoot:
 		can_shoot = false
 		var new_bullet = bullet.instantiate()
