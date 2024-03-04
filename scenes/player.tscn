@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvpqadsar27g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o32ye"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_e7i1i"]
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="3_f0463"]
-[ext_resource type="Texture2D" uid="uid://cc6pwcinh6n68" path="res://sprites/player/ball.png" id="4_7uptb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1ho"]
 size = Vector2(175, 142)
@@ -26,9 +26,11 @@ platform_floor_layers = 0
 script = ExtResource("1_o32ye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -1.90735e-06)
-scale = Vector2(0.419048, 0.302521)
-texture = ExtResource("4_7uptb")
+position = Vector2(5.10953, -4.83193)
+scale = Vector2(11.2812, 7.71199)
+texture = ExtResource("2_e7i1i")
+region_enabled = true
+region_rect = Rect2(76.1582, 202.013, 17.4474, 22.579)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_3u1ho")

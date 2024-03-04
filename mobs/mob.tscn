@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhj64vmwc7g2j"]
 
 [ext_resource type="Script" path="res://mobs/mob.gd" id="1_hxvpc"]
-[ext_resource type="Texture2D" uid="uid://3xa03dih4h15" path="res://sprites/mobs/robot.png" id="3_ibfbi"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_1sl37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
 size = Vector2(163, 172)
@@ -12,8 +12,11 @@ platform_floor_layers = 0
 script = ExtResource("1_hxvpc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.791262, 0.741379)
-texture = ExtResource("3_ibfbi")
+position = Vector2(1, 7)
+scale = Vector2(8.04545, 8.625)
+texture = ExtResource("2_1sl37")
+region_enabled = true
+region_rect = Rect2(72.1838, 709.191, 22.4772, 24.5977)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_upyca")

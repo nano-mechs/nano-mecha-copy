@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvbqvcwyovguo"]
 
 [ext_resource type="Script" path="res://mobs/teleporter.gd" id="1_4my84"]
-[ext_resource type="Texture2D" uid="uid://buwdsbj4hd6bg" path="res://sprites/mobs/teleporter.PNG" id="2_qbffm"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_60k4r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3ht"]
 size = Vector2(83, 71)
@@ -12,7 +12,11 @@ platform_floor_layers = 0
 script = ExtResource("1_4my84")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qbffm")
+position = Vector2(7.62939e-06, 1)
+scale = Vector2(6.70652, 4.59091)
+texture = ExtResource("2_60k4r")
+region_enabled = true
+region_rect = Rect2(48.5014, 452.897, 23.7495, 22.9013)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ji3ht")
