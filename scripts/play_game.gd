@@ -4,18 +4,28 @@ extends Node2D
 var enemies
 var boss
 var scene_switched = false # in case something tries to switch scenes when it already switched
+var random_drop = false
 
 
 # turns into boss level every 3rd level
 func _ready():
 	if State.level % 3 == 0:
+		random_drop = true
 		boss = State.assign_boss()
 		boss.global_position = Vector2(0, 0)
 		boss.connect("killed", _on_boss_killed)
 		add_child(boss)
 	else:
+		random_drop = false
 		enemies = State.assign_enemy_props()
 		%EnemySpawnTimer.start()
+
+
+func _physics_process(delta):
+	if random_drop && randf() <= 0.01: # 1% chance for powerup to drop every frame
+		print("random chance drop")
+		drop_powerup(Vector2(randf_range(100, 3740),
+							 randf_range(100, 2060))) # within 100 pixels of the borders
 
 
 func win_level():

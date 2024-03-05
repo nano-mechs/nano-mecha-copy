@@ -44,11 +44,11 @@ func take_damage(damage = 1):
 
 
 func get_status(stats):
-	speed                  += stats.speed
-	%Gun.reload.wait_time   = stats.reload_time
-	if stats.bullet: bullet = stats.bullet
-	else: stats.bullet      = base_bullet
+	if stats.speed:       speed                 = stats.speed
+	if stats.reload_time: %Gun.reload.wait_time = stats.reload_time
+	if stats.bullet:      bullet                = stats.bullet
 
+	%StatusTimer.wait_time = stats.wait_time
 	%StatusTimer.start() # also refreshes status time when new status get
 
 
