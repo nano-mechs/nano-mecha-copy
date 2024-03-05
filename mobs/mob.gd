@@ -12,6 +12,9 @@ var damage = 1 # damage gets used when making contact with player
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
 	velocity = direction * speed
+
+	if velocity.x < 0: %AnimatedSprite2D.flip_h = true
+	else: %AnimatedSprite2D.flip_h = false
 	move_and_slide()
 
 

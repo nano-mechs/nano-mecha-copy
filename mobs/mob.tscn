@@ -1,23 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhj64vmwc7g2j"]
+[gd_scene load_steps=9 format=3 uid="uid://dhj64vmwc7g2j"]
 
 [ext_resource type="Script" path="res://mobs/mob.gd" id="1_hxvpc"]
-[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_q8d4d"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_8fw7q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ig34f"]
+atlas = ExtResource("2_8fw7q")
+region = Rect2(120, 704, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35we2"]
+atlas = ExtResource("2_8fw7q")
+region = Rect2(144, 704, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30j38"]
+atlas = ExtResource("2_8fw7q")
+region = Rect2(96, 704, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6j38"]
+atlas = ExtResource("2_8fw7q")
+region = Rect2(168, 704, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x430g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ig34f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35we2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30j38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6j38")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
-size = Vector2(14, 14)
+size = Vector2(14, 11)
 
 [node name="Mob" type="CharacterBody2D"]
 collision_layer = 3
 platform_floor_layers = 0
 script = ExtResource("1_hxvpc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(10, 10)
-texture = ExtResource("2_q8d4d")
-region_enabled = true
-region_rect = Rect2(77, 713, 14, 23)
+sprite_frames = SubResource("SpriteFrames_x430g")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -44)
+position = Vector2(0, -14)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_upyca")
