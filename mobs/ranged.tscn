@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxonv2qcpfdvh"]
 
 [ext_resource type="Script" path="res://mobs/ranged.gd" id="1_xoxsg"]
-[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_nlts0"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_4kcn8"]
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="4_kkp67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprgl"]
@@ -14,7 +14,7 @@ script = ExtResource("1_xoxsg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
-texture = ExtResource("2_nlts0")
+texture = ExtResource("2_4kcn8")
 region_enabled = true
 region_rect = Rect2(149, 296, 15, 24)
 

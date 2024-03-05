@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bvpqadsar27g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o32ye"]
-[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/player/Robots.png" id="2_e7i1i"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_qo8sk"]
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="3_f0463"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1ho"]
@@ -27,7 +27,7 @@ script = ExtResource("1_o32ye")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(10, 10)
-texture = ExtResource("2_e7i1i")
+texture = ExtResource("2_qo8sk")
 region_enabled = true
 region_rect = Rect2(76, 202, 15, 22)
 
@@ -63,6 +63,5 @@ value = 100.0
 
 [node name="StatusTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
 
 [connection signal="timeout" from="StatusTimer" to="." method="_on_status_timer_timeout"]
