@@ -1,37 +1,108 @@
-[gd_scene load_steps=8 format=3 uid="uid://bvpqadsar27g"]
+[gd_scene load_steps=16 format=3 uid="uid://bvpqadsar27g"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_o32ye"]
-[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_qo8sk"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_x6jqh"]
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="3_f0463"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qdeb"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(120, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwwkm"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(144, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihamc"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(96, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yju1"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(168, 192, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljsuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qdeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwwkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihamc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yju1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uoml"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(0, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2313j"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(24, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge5at"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(48, 192, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey5l3"]
+atlas = ExtResource("2_x6jqh")
+region = Rect2(72, 192, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iiph8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uoml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2313j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge5at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey5l3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1ho"]
-size = Vector2(15, 22)
+size = Vector2(13, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we68d"]
 size = Vector2(15, 22)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en11l"]
-bg_color = Color(0.223529, 0.223529, 0.223529, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bl56n"]
-bg_color = Color(0, 0.662745, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 13
 platform_floor_layers = 0
 script = ExtResource("1_o32ye")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Moving" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -50)
 scale = Vector2(10, 10)
-texture = ExtResource("2_qo8sk")
-region_enabled = true
-region_rect = Rect2(76, 202, 15, 22)
+sprite_frames = SubResource("SpriteFrames_ljsuh")
+autoplay = "default"
+
+[node name="Standing" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -50)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_iiph8")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_3u1ho")
 
@@ -40,6 +111,7 @@ unique_name_in_owner = true
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-5, 0)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_we68d")
 debug_color = Color(0.8, 0, 0.188235, 0.419608)
@@ -52,13 +124,11 @@ collision_layer = 3
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -110.0
-offset_top = -126.0
-offset_right = 105.0
-offset_bottom = -103.0
-rotation = -0.000420329
-theme_override_styles/background = SubResource("StyleBoxFlat_en11l")
-theme_override_styles/fill = SubResource("StyleBoxFlat_bl56n")
+modulate = Color(0, 0.56932, 0.460203, 0.945098)
+offset_left = -111.0
+offset_top = 123.0
+offset_right = 111.0
+offset_bottom = 150.0
 value = 100.0
 
 [node name="StatusTimer" type="Timer" parent="."]
