@@ -11,8 +11,8 @@ var target
 # bit masks so they count in multiples of 2
 # i.e. player is in layer 3 but bitmap 4 so walls(bitmap 1) + player(bitmap 4) = bitmap 5
 enum mask {
-	player = 5,
-	enemy  = 3
+	player = 4,
+	enemy  = 2
 }
 
 
