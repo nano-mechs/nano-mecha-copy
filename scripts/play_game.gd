@@ -24,8 +24,8 @@ func _ready():
 func _physics_process(delta):
 	if random_drop && randf() <= 0.01: # 1% chance for powerup to drop every frame
 		print("random chance drop")
-		drop_powerup(Vector2(randf_range(100, 3740),
-							 randf_range(100, 2060))) # within 100 pixels of the borders
+		call_deferred("drop_powerup", Vector2(randf_range(100, 3740),
+							randf_range(100, 2060))) # within 100 pixels of the borders
 
 
 func win_level():
@@ -61,11 +61,9 @@ func _on_enemy_spawn_timer_timeout():
 # signal attached to every enemy by spawn_enemy() method
 func _on_enemy_killed(coords):
 	enemies.killed += 1
-	print(coords)
-	if randf() <= 0.05: # 5% chance to drop a powerup
-		drop_powerup(coords)
-	if enemies.killed == enemies.max_spawn_count:
-		call_deferred("win_level") # call_deferred to call the function at the end of a tick
+	if enemies.killed == enemies.max_spawn_count: call_deferred("win_level")
+	# 5% chance to drop a powerup
+	if randf() <= 0.05: call_deferred("drop_powerup", coords)
 
 
 func spawn_enemy():
