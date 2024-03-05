@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal killed
 
 var target
-var health = 3
+var health = 4
 var speed  = 200
 var damage = 2
 

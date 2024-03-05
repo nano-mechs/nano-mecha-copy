@@ -16,7 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	# only move to the player until a certain distance away
-	if global_position.distance_to(target.global_position) >= 800:
+	if global_position.distance_to(target.global_position) >= 1000:
 		var direction = global_position.direction_to(target.global_position)
 		velocity = direction * speed
 		move_and_slide()
