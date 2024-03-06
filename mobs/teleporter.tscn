@@ -1,24 +1,60 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvbqvcwyovguo"]
+[gd_scene load_steps=9 format=3 uid="uid://bvbqvcwyovguo"]
 
 [ext_resource type="Script" path="res://mobs/teleporter.gd" id="1_4my84"]
 [ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_60k4r"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4xy0"]
+atlas = ExtResource("2_60k4r")
+region = Rect2(96, 448, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj28m"]
+atlas = ExtResource("2_60k4r")
+region = Rect2(120, 448, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qup3m"]
+atlas = ExtResource("2_60k4r")
+region = Rect2(144, 448, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03phd"]
+atlas = ExtResource("2_60k4r")
+region = Rect2(168, 448, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fawb2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4xy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj28m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qup3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03phd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ji3ht"]
-size = Vector2(8, 10)
+size = Vector2(8, 9)
 
 [node name="Teleporter" type="CharacterBody2D"]
 collision_layer = 3
 platform_floor_layers = 0
 script = ExtResource("1_4my84")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 scale = Vector2(10, 10)
-texture = ExtResource("2_60k4r")
-region_enabled = true
-region_rect = Rect2(56, 458, 8, 22)
+sprite_frames = SubResource("SpriteFrames_fawb2")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -60)
+position = Vector2(0, -24)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_ji3ht")
 

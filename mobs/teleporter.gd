@@ -26,19 +26,22 @@ func teleport():
 							  randf_range(-tp_range, tp_range))
 	global_position += tp_position
 	# keep this thing within bounds
-	if global_position.x > play_area_height:
-		global_position.x -= play_area_height
+	if global_position.x > play_area_width:
+		global_position.x -= play_area_width
 	elif global_position.x < 0:
-		global_position.x += play_area_height
-	if global_position.y > play_area_width:
-		global_position.y -= play_area_width
+		global_position.x += play_area_width
+	if global_position.y > play_area_height:
+		global_position.y -= play_area_height
 	elif global_position.y < 0:
-		global_position.y += play_area_width
+		global_position.y += play_area_height
 
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(target.global_position)
 	velocity = direction * speed
+
+	if velocity.x < 0: %AnimatedSprite2D.flip_h = true
+	else: %AnimatedSprite2D.flip_h = false
 	move_and_slide()
 
 
