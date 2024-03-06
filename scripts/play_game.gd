@@ -12,7 +12,8 @@ func _ready():
 	if State.level % 3 == 0:
 		random_drop = true
 		boss = State.assign_boss()
-		boss.global_position = Vector2(0, 0)
+		boss.global_position = Vector2(100, 100)
+		boss.target = %Player
 		boss.connect("killed", _on_boss_killed)
 		add_child(boss)
 	else:

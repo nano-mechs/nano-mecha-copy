@@ -1,7 +1,7 @@
 extends Area2D
 
 var speed = 3000
-var damage = 2
+var damage = 1
 
 
 func _physics_process(delta):

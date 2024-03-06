@@ -4,7 +4,7 @@ signal killed
 
 var target
 var health = 4
-var speed  = 200
+var speed  = 100
 var damage = 2
 
 

@@ -18,11 +18,12 @@ func assign_enemy_props():
 			enemies.max_spawn_count = 100
 			enemies.types = [
 				preload("res://mobs/mob.tscn"),
-				#preload("res://mobs/teleporter.tscn"),
+				preload("res://mobs/ranged.tscn")
 			]
 		2:
 			enemies.max_spawn_count = 200
 			enemies.types = [
+				preload("res://mobs/mob.tscn"),
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn")
 			]
@@ -31,7 +32,7 @@ func assign_enemy_props():
 			enemies.types = [
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn"),
-				preload("res://mobs/mob.tscn")
+				preload("res://mobs/teleporter.tscn")
 			]
 	return enemies
 
