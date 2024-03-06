@@ -5,7 +5,7 @@ signal killed # everything emits a killed signal for when they... get killed
 
 var target # value assigned(usually the player) on spawn from the parent scene
 var health = 1
-var speed  = 600
+var speed  = 400 if State.easy_mode else 600
 var damage = 1 # damage gets used when making contact with player
 
 

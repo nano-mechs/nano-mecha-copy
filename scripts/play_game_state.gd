@@ -8,7 +8,7 @@ var level = 1
 var powerups = [
 	preload("res://powerups/piercer.tscn")
 ]
-var easy_mode = true
+var easy_mode = false
 
 # returns a hash that contains the enemy types
 func assign_enemy_props():
@@ -22,19 +22,20 @@ func assign_enemy_props():
 				preload("res://mobs/ranged.tscn")
 			]
 		2:
-			enemies.max_spawn_count = 200
+			enemies.max_spawn_count = 125
 			enemies.types = [
 				preload("res://mobs/mob.tscn"),
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn")
 			]
 		4:
-			enemies.max_spawn_count = 300
+			enemies.max_spawn_count = 150
 			enemies.types = [
 				preload("res://mobs/mob2.tscn"),
 				preload("res://mobs/ranged.tscn"),
 				preload("res://mobs/teleporter.tscn")
 			]
+	if easy_mode: enemies.max_spawn_count -= 25
 	return enemies
 
 

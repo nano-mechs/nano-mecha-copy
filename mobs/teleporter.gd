@@ -15,6 +15,10 @@ var play_area_width = 1920 * 2;
 var play_area_height = 1080 * 2;
 
 
+func _ready():
+	if State.easy_mode: %Timer.wait_time = 2
+
+
 func teleport():
 	# TODO teleport animation or something
 	# var tp = tp_flash.instantiate()

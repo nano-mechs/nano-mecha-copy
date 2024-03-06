@@ -12,6 +12,7 @@ var bullet = preload("res://weapons/bullet.tscn")
 
 func _ready():
 	%Gun.target = "player"
+	if State.easy_mode: %Gun.reload.wait_time = 2
 
 
 func _physics_process(delta):

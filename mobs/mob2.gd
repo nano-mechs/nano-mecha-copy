@@ -3,7 +3,7 @@ extends CharacterBody2D
 signal killed
 
 var target
-var health = 4
+var health = 2 if State.easy_mode else 4
 var speed  = 100
 var damage = 2
 
