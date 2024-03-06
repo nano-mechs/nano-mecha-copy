@@ -16,8 +16,6 @@ var bullet      = base_bullet
 func _ready():
 	%Gun.reload.wait_time = base_reload_time
 	%Gun.target = "enemy"
-	%Standing.visible = true
-	%Moving.visible = false
 
 
 # runs 60 times per second
@@ -25,19 +23,12 @@ func _physics_process(delta):
 	# move direction & speed
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
-	if velocity.x == 0 && velocity.y == 0:
-		%Standing.visible = true
-		%Moving.visible = false
-	else:
-		%Standing.visible = false
-		%Moving.visible = true
 
-	if global_position.x > get_global_mouse_position().x:
-		%Standing.flip_h = true
-		%Moving.flip_h = true
-	else:
-		%Standing.flip_h = false
-		%Moving.flip_h = false
+	if velocity: %AnimatedSprite2D.play(&"moving")
+	else: %AnimatedSprite2D.play(&"standing")
+
+	if global_position.x > get_global_mouse_position().x: %AnimatedSprite2D.flip_h = true
+	else: %AnimatedSprite2D.flip_h = false
 
 	move_and_slide()
 
