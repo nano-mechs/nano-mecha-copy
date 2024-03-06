@@ -1,25 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkeu7ym4aivrh"]
+[gd_scene load_steps=10 format=3 uid="uid://bkeu7ym4aivrh"]
 
 [ext_resource type="Script" path="res://bosses/boss1.gd" id="1_lsl5i"]
 [ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_cstjy"]
 [ext_resource type="Curve2D" uid="uid://ci5mwy4v2vmli" path="res://bosses/boss1_path.tres" id="3_pstyj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjuew"]
+atlas = ExtResource("2_cstjy")
+region = Rect2(96, 800, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5mhk"]
+atlas = ExtResource("2_cstjy")
+region = Rect2(120, 800, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1ng1"]
+atlas = ExtResource("2_cstjy")
+region = Rect2(144, 800, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uepov"]
+atlas = ExtResource("2_cstjy")
+region = Rect2(168, 800, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m71mv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjuew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5mhk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1ng1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uepov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_upyca"]
-size = Vector2(19, 18)
+size = Vector2(19, 15)
 
 [node name="Boss" type="CharacterBody2D"]
 collision_layer = 2
 platform_floor_layers = 0
 script = ExtResource("1_lsl5i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 100)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(20, 20)
-texture = ExtResource("2_cstjy")
-region_enabled = true
-region_rect = Rect2(123, 804, 19, 28)
+sprite_frames = SubResource("SpriteFrames_m71mv")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, -70)
 scale = Vector2(20, 20)
 shape = SubResource("RectangleShape2D_upyca")
 
@@ -39,3 +74,10 @@ curve = ExtResource("3_pstyj")
 unique_name_in_owner = true
 position = Vector2(100, 2060)
 rotates = false
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
