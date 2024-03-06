@@ -7,8 +7,9 @@ signal killed
 
 var target
 var health = 100
-var speed = 5
+var speed = 25
 var speed_up = 5
+var speed_up_up = -1
 var damage = 5
 var child = preload("res://mobs/teleporter.tscn")
 
@@ -32,6 +33,8 @@ func take_damage(damage = 1):
 
 func _on_timer_timeout():
 	speed += speed_up
+	speed_up += speed_up_up
+	if abs(speed_up) == 5: speed_up_up = -speed_up_up
 	var new_child = child.instantiate()
 	new_child.global_position = global_position
 	new_child.target = target
