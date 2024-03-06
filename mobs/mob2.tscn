@@ -52,6 +52,7 @@ unique_name_in_owner = true
 position = Vector2(0, -80)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_7vpey")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)

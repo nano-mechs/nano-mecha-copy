@@ -21,6 +21,9 @@ func _physics_process(delta):
 		velocity = direction * speed
 		move_and_slide()
 
+	if global_position.x > target.global_position.x: %AnimatedSprite2D.flip_h = true
+	else: %AnimatedSprite2D.flip_h = false
+
 	%Gun.look_at(target.global_position)
 	%Gun.shoot(bullet)
 

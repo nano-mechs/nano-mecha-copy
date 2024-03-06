@@ -1,25 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxonv2qcpfdvh"]
+[gd_scene load_steps=10 format=3 uid="uid://dxonv2qcpfdvh"]
 
 [ext_resource type="Script" path="res://mobs/ranged.gd" id="1_xoxsg"]
-[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_4kcn8"]
+[ext_resource type="Texture2D" uid="uid://imivsn8jtad" path="res://sprites/entities.png" id="2_jij0o"]
 [ext_resource type="PackedScene" uid="uid://dm443dox6nid6" path="res://weapons/gun.tscn" id="4_kkp67"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1aget"]
+atlas = ExtResource("2_jij0o")
+region = Rect2(96, 288, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mbsm"]
+atlas = ExtResource("2_jij0o")
+region = Rect2(120, 288, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex0m5"]
+atlas = ExtResource("2_jij0o")
+region = Rect2(144, 288, 24, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms6pg"]
+atlas = ExtResource("2_jij0o")
+region = Rect2(168, 288, 24, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_su1f0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1aget")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mbsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex0m5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms6pg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mprgl"]
-size = Vector2(15, 23)
+size = Vector2(15, 21)
 
 [node name="Ranged" type="CharacterBody2D"]
 collision_layer = 3
 platform_floor_layers = 0
 script = ExtResource("1_xoxsg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -60)
 scale = Vector2(10, 10)
-texture = ExtResource("2_4kcn8")
-region_enabled = true
-region_rect = Rect2(149, 296, 15, 24)
+sprite_frames = SubResource("SpriteFrames_su1f0")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(6, -15)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_mprgl")
 
