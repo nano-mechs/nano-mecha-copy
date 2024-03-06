@@ -8,6 +8,7 @@ var level = 1
 var powerups = [
 	preload("res://powerups/piercer.tscn")
 ]
+var easy_mode = true
 
 # returns a hash that contains the enemy types
 func assign_enemy_props():

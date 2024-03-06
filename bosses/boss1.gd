@@ -7,7 +7,7 @@ signal killed
 
 var target
 var health = 100
-var speed = 25
+var speed = 15 if State.easy_mode else 25
 var speed_up = 5
 var speed_up_up = -1
 var damage = 5

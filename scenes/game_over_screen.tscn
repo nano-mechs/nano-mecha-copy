@@ -47,4 +47,33 @@ theme_override_font_sizes/font_size = 50
 text = "Restart"
 metadata/_edit_use_anchors_ = true
 
+[node name="QuitButton" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.5
+offset_top = -280.0
+offset_right = 156.5
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Quit to main"
+metadata/_edit_use_anchors_ = true
+
+[node name="EasyModeButton" type="CheckButton" parent="ColorRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1646.0
+offset_top = 14.0
+offset_right = 1778.0
+offset_bottom = 45.0
+scale = Vector2(2, 2)
+text = "easy mode"
+
 [connection signal="pressed" from="ColorRect/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="ColorRect/EasyModeButton" to="." method="_on_easy_mode_button_toggled"]
